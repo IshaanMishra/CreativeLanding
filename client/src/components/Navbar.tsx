@@ -12,38 +12,60 @@ const navItems = [
 ];
 
 export default function Navbar() {
-  const scrolled = useScroll(50);
+  const scrolled = useScroll(0.1); // Adjust threshold to 10% of viewport height
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   return (
-    <header 
+    <motion.header 
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
+        "fixed top-0 w-full z-50",
         scrolled ? "h-12 mt-4" : "h-16 bg-background/80 backdrop-blur-md border-b"
       )}
+      initial={{ y: 0, opacity: 1 }}
+      animate={{
+        y: scrolled ? 0 : 0,
+        opacity: 1,
+      }}
+      transition={{
+        duration: 0.3,
+        ease: "easeInOut"
+      }}
     >
       <nav className="container mx-auto px-4 h-full flex items-center justify-between">
-        {/* Only show logo when not scrolled */}
-        {!scrolled && (
-          <Link href="/">
-            <a className="text-xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-              Portfolio
-            </a>
-          </Link>
-        )}
+        <motion.div
+          initial={{ opacity: 1 }}
+          animate={{ opacity: scrolled ? 0 : 1 }}
+          transition={{ duration: 0.2 }}
+        >
+          {!scrolled && (
+            <Link href="/">
+              <a className="text-xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                Portfolio
+              </a>
+            </Link>
+          )}
+        </motion.div>
 
         <ul className={cn(
-          "flex gap-4 transition-all duration-300",
+          "flex gap-4 transition-all duration-300 ease-in-out",
           scrolled ? "mx-auto" : ""
         )}>
           {navItems.map((item) => (
-            <li key={item.name}>
+            <motion.li 
+              key={item.name}
+              layout
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 20
+              }}
+            >
               <Link href={item.path}>
                 <a
                   onMouseEnter={() => setHoveredItem(item.name)}
                   onMouseLeave={() => setHoveredItem(null)}
                   className={cn(
-                    "relative py-1.5 px-4 transition-all duration-300",
+                    "relative py-1.5 px-4 transition-all duration-300 ease-in-out",
                     scrolled ? "bg-background/80 backdrop-blur-md rounded-full border shadow-sm" : ""
                   )}
                 >
@@ -62,10 +84,10 @@ export default function Navbar() {
                   )}
                 </a>
               </Link>
-            </li>
+            </motion.li>
           ))}
         </ul>
       </nav>
-    </header>
+    </motion.header>
   );
 }

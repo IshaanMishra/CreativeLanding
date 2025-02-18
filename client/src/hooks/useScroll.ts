@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 
-export default function useScroll(threshold: number = 0): boolean {
-  const [scrolled, setScrolled] = useState(false);
+export default function useScroll(threshold: number = 0): number {
+  const [scrollPercent, setScrollPercent] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > threshold);
+      // Calculate scroll percentage relative to viewport height
+      const percent = window.scrollY / window.innerHeight;
+      setScrollPercent(percent);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Add passive listener for better performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [threshold]);
 
-  return scrolled;
+  return scrollPercent;
 }
