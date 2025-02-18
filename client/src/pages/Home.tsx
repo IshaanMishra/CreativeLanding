@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Globe from "@/components/Globe";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -6,8 +5,6 @@ import { motion } from "framer-motion";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Navbar />
-
       <main className="relative">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
