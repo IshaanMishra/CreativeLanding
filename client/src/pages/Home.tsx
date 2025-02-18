@@ -12,10 +12,10 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="absolute top-24 left-0 right-0 z-10 text-center pointer-events-none"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+          <h1 className="text-left ml-5 4xl md:text-xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-white">
             Interactive Globe Portfolio
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-left ml-5 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Explore our global presence through this interactive 3D visualization
           </p>
         </motion.div>

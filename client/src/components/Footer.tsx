@@ -6,8 +6,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <a 
-            href="mailto:rk@gmail.com"
-            className="text-sm font-medium hover:text-primary transition-colors"
+            href="mailto:robertokbattowski@gmail.com"
+            className="text-sm font-medium hover:text-white transition-colors"
           >
             Contact Us
           </a>

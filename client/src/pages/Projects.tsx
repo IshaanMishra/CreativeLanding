@@ -9,47 +9,47 @@ interface Project {
 
 const projects: Project = {
   name: "Projects",
-  description: "Root",
+  description: "Index",
   children: [
     {
       name: "Stars that led and lead",
-      description: "An innovative project exploring celestial navigation and guidance",
+      description: "An innovative project exploring historic characters and guidance",
       children: [
         {
           name: "Ancient Navigation",
-          description: "Historical methods of celestial navigation",
+          description: "Historical data through celestial guidance",
         },
         {
-          name: "Modern Applications",
-          description: "Current uses of stellar navigation",
+          name: "Modern Views",
+          description: "My take on the modern social discord",
         }
       ]
     },
     {
-      name: "Web Development",
-      description: "Full-stack development projects",
+      name: "Project Hue",
+      description: "Color symbolism in different cultures",
       children: [
         {
-          name: "Portfolio",
-          description: "Interactive 3D globe portfolio",
+          name: "Countries",
+          description: "Flag",
         },
         {
-          name: "E-commerce Platform",
-          description: "Modern shopping experience",
+          name: "Tribes",
+          description: "Social Life",
         }
       ]
     },
     {
-      name: "AI & Machine Learning",
-      description: "Artificial Intelligence projects",
+      name: "Buildings across time",
+      description: "Vision of deconstruct",
       children: [
         {
-          name: "Neural Networks",
-          description: "Deep learning implementations",
+          name: "Oldest habitat",
+          description: "Region",
         },
         {
-          name: "Computer Vision",
-          description: "Image processing applications",
+          name: "Era",
+          description: "Ancient-Medieval-Modern",
         }
       ]
     }
@@ -90,7 +90,7 @@ export default function Projects() {
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold mb-8 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent"
+          className="text-4xl font-bold mb-8 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-white"
         >
           Project Tree
         </motion.h1>

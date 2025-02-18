@@ -9,22 +9,20 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-2xl mx-auto"
+          className="max-w-6xl min-h-[500px] mx-auto"
         >
-          <Card className="bg-accent/10 backdrop-blur-sm">
+          <Card className="bg-accent/10 backdrop-blur-sm p-8 h-[400px]">
             <CardContent className="pt-6">
-              <h1 className="text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+              <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-white">
                 Hey, this is RB
               </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Welcome to my corner of the web! I'm passionate about creating innovative solutions 
-                through technology. With a focus on web development, artificial intelligence, and 
-                astronomical applications, I strive to build projects that make a difference.
+              <p className="text-2xl text-muted-foreground leading-relaxed">
+                Welcome!
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed mt-4">
-                My journey in technology has led me to work on various exciting projects, 
-                from stellar navigation systems to modern web applications. I believe in 
-                the power of combining different disciplines to create unique solutions.
+              <p className="text-2xl text-muted-foreground leading-relaxed mt-4">
+                Thank You!!!
+              <br></br>
+              Expect the Unexpected!
               </p>
             </CardContent>
           </Card>
