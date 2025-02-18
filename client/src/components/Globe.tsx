@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Globe from 'react-globe.gl';
 import { useToast } from "@/hooks/use-toast";
 
@@ -12,23 +12,36 @@ const locations = [
 export default function GlobeComponent() {
   const globeRef = useRef<any>();
   const { toast } = useToast();
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
 
   useEffect(() => {
+    const handleResize = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+
     if (globeRef.current) {
-      // Auto-rotate
       globeRef.current.controls().autoRotate = true;
       globeRef.current.controls().autoRotateSpeed = 0.5;
-      
-      // Initial position
+
       globeRef.current.pointOfView({
         lat: 25,
         lng: 0,
         altitude: 2.5
       });
     }
+
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const handlePointClick = (point: typeof locations[0]) => {
+  const handlePointClick = (point: any) => {
     toast({
       title: point.name,
       description: `Location clicked: ${point.name}`,
@@ -39,6 +52,8 @@ export default function GlobeComponent() {
   return (
     <Globe
       ref={globeRef}
+      width={dimensions.width}
+      height={dimensions.height}
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
       backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
       pointsData={locations}
@@ -51,8 +66,6 @@ export default function GlobeComponent() {
       onPointClick={handlePointClick}
       atmosphereColor="hsl(222.2 84% 4.9%)"
       atmosphereAltitude={0.15}
-      width={800}
-      height={800}
     />
   );
 }
