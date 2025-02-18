@@ -8,11 +8,6 @@
       {
         "src": "client/dist/**/*",
         "use": "@vercel/static"
-      },
-      {
-        "scripts": {
-          "vercel-build": "vite build && tsc && node server/index.js"
-        }
       }
     ],
     "routes": [
