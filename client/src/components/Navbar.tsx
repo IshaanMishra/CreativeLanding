@@ -8,11 +8,10 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "Projects", path: "/projects" },
   { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
 ];
 
 export default function Navbar() {
-  const scrolled = useScroll(0.1); // Adjust threshold to 10% of viewport height
+  const scrolled = useScroll(0.1);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   return (
